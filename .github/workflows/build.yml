@@ -1,0 +1,37 @@
+name: build
+
+on:
+  push:
+    branches: [main, master]
+    tags: ['v*']      # 打 v* 标签时构建并自动发布 Release（用户免登录下载）
+  workflow_dispatch:
+
+permissions:
+  contents: write     # 发布 Release 需要
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt pyinstaller
+      - name: Build executable
+        run: pyinstaller --clean --noconfirm t2s_tool_gui.spec
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: t2s-voice-tool-${{ matrix.os }}
+          path: dist/
+      - name: Publish to Release (tag builds)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*

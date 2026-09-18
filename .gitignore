@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+config.json
+tasks.json
+.pytest_cache/
+.omc/
+*_output/
+build/
+dist/
+语音包/
