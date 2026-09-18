@@ -30,6 +30,7 @@ jobs:
         with:
           name: t2s-voice-tool-${{ matrix.os }}
           path: dist/
+          retention-days: 1  # 分支构建的工件仅作短期验证，1 天后自动清理，避免打满 artifact 配额
       - name: Publish to Release (tag builds)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
