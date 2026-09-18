@@ -11,7 +11,7 @@ from .errors import ConfigError
 PROVIDER_DEFAULTS: Dict = {
     "api_key": "",
     "base_url": "https://api.minimaxi.com",
-    "model": "speech-2.8-hd",
+    "model": "speech-2.8-turbo",
     "voice_setting": {"voice_id": "male-qn-qingse", "speed": 1.0, "vol": 1.0, "pitch": 0},
     "audio_setting": {"audio_sample_rate": 32000, "bitrate": 128000, "format": "mp3", "channel": 2},
     "poll_interval": 10,     # 秒；测试可注入 0

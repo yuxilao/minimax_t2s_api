@@ -331,7 +331,7 @@ CLI 的 batch 模式**行为不变：全程阻塞**（提交 1 个任务 → 原
         "minimax": {
             "api_key": "",
             "base_url": "https://api.minimaxi.com",
-            "model": "speech-2.8-hd",
+            "model": "speech-2.8-turbo",
             "voice_setting": {
                 "voice_id": "male-qn-qingse",
                 "speed": 1.0,
@@ -363,7 +363,7 @@ CLI 的 batch 模式**行为不变：全程阻塞**（提交 1 个任务 → 原
 |------|------|------|--------|------|
 | `api_key` | string | 是 | — | MiniMax API Key（Bearer Token） |
 | `base_url` | string | 否 | `https://api.minimaxi.com` | 接口基址，一般不用改 |
-| `model` | string | 否 | `speech-2.8-hd` | 模型标识符，见下表 |
+| `model` | string | 否 | `speech-2.8-turbo` | 模型标识符，见下表 |
 | `voice_setting.voice_id` | string | 是 | `male-qn-qingse` | 音色 ID（整批共用一个音色） |
 | `voice_setting.speed` | float | 否 | `1.0` | 语速，0.5 ~ 2.0 |
 | `voice_setting.vol` | float | 否 | `1.0` | 音量，0 ~ 10 |
@@ -385,8 +385,8 @@ CLI 的 batch 模式**行为不变：全程阻塞**（提交 1 个任务 → 原
 
 | 模型标识符 | 说明 |
 |-----------|------|
-| `speech-2.8-hd` | 2.8T 高清版（推荐） |
-| `speech-2.8-turbo` | 2.8T turbo 速度版 |
+| `speech-2.8-turbo` | 2.8T turbo 速度版（推荐，默认） |
+| `speech-2.8-hd` | 2.8T 高清版 |
 | `speech-2.6-hd` | 2.6T 高清版 |
 | `speech-2.6-turbo` | 2.6T turbo 速度版 |
 
